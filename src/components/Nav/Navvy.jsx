@@ -1,28 +1,19 @@
-import { Container, Navbar, Nav } from "react-bootstrap";
-import { FaReact } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Container, Navbar } from "react-bootstrap";
+import { FaGlobe } from "react-icons/fa";
 
 const Navvy = () => (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" className="navvy">
         <Container>
-            <Navbar.Brand className="d-flex justify-content-between align-items-center">
-                <FaReact className="icon font-weight-bold" />
-                <span className="brand-name font-weight-bold ml-2">
-                    React Template Pro
-                </span>
-            </Navbar.Brand>
+            <a
+                href="/"
+                className="brand d-flex justify-content-between align-items-center text-decoration-none"
+            >
+                <FaGlobe className="brand-icon" />
 
-            <Nav className="mr-auto">
-                <Link to="/" className="mr-3 ml-4 text-decoration-none">
-                    Home
-                </Link>
-                <Link to="/about" className="mr-3 text-decoration-none">
-                    About
-                </Link>
-                <Link to="/contacts" className="mr-3 text-decoration-none">
-                    Contacts
-                </Link>
-            </Nav>
+                <h3 className="brand-header ml-2 mb-0">
+                    Global Average Temperature
+                </h3>
+            </a>
         </Container>
     </Navbar>
 );

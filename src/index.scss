@@ -1,7 +1,8 @@
 @import "~rfs/scss";
 
-.App {
+.main {
     height: 90vh;
+    width: 100vw;
 }
 
 .App-logo {
@@ -25,19 +26,27 @@ a {
     }
 }
 
-.navvy {
-    height: 10vh;
-}
-
 .integrations-header,
 .contact-header,
 .home-header {
     @include font-size(2rem);
 }
 
-.icon,
-.brand-name,
-.integrations-list {
-    @include font-size(1.5rem);
-    color: #61dafb;
+//* Navbar
+.navvy {
+    height: 10vh;
+
+    .brand {
+        color: #61dafb;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            color: #00c8ff;
+        }
+
+        .brand-icon,
+        .brand-header {
+            @include font-size(1.5rem);
+        }
+    }
 }
