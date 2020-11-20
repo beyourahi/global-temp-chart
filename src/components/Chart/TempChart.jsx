@@ -14,7 +14,6 @@ const TempChart = ({ dataset, chartType }) => {
         labels: xLabels,
         datasets: [
             {
-                label: "Global Average Temperature",
                 data: yLabels,
                 backgroundColor: "rgba(97, 218, 251, 0.2)",
                 borderColor: "rgba(97, 218, 251, 1)",

@@ -16,6 +16,7 @@ const App = () => {
             <div className="main bg-dark">
                 <Container className="main-section p-0 d-flex justify-content-between align-items-center">
                     <TempChart dataset={DATA} chartType={chartType} />
+
                     <ChartButtons handleType={handleType} />
                 </Container>
             </div>
