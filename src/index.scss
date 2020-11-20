@@ -1,44 +1,12 @@
 @import "~rfs/scss";
 
-.main {
-    height: 90vh;
-    width: 100vw;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-    animation: App-logo-spin infinite 20s linear;
-}
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-a {
-    color: #fff;
-    &:hover {
-        color: #c9c9c9;
-    }
-}
-
-.integrations-header,
-.contact-header,
-.home-header {
-    @include font-size(2rem);
-}
-
 //* Navbar
 .navvy {
     height: 10vh;
 
     .brand {
         color: #61dafb;
-        transition: all 0.2s ease-in;
+        transition: all 0.1s ease-in;
 
         &:hover {
             color: #00c8ff;
@@ -48,5 +16,27 @@ a {
         .brand-header {
             @include font-size(1.5rem);
         }
+    }
+}
+
+//* Main
+.main {
+    height: 90vh;
+    width: 100vw;
+
+    .main-section {
+        height: 100%;
+    }
+
+    //? Chart
+    .chart-container {
+        position: relative;
+        width: 80%;
+        height: 90%;
+    }
+
+    //? Buttons
+    .chart-buttons {
+        //
     }
 }
