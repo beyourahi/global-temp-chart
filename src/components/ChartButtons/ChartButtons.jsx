@@ -10,7 +10,6 @@ const ChartButtons = ({ handleType }) => {
 
     const handler = index => e => {
         type = btnRef.current[index].name;
-
         handleType(type !== "Polar Area" ? type.toLowerCase() : "polarArea");
     };
 
