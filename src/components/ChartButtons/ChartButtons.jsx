@@ -1,27 +1,32 @@
 import { useRef } from "react";
 import { Button } from "react-bootstrap";
+import { chartButtons, button, variant } from "../../styles/chartButtonsStyles";
 
+//* Chart Buttons component
 const ChartButtons = ({ handleType }) => {
+    //// variable declarations
     let type;
-
+    const btnRef = useRef([]);
     const chartTypes = ["Bar", "Line", "Radar", "Pie", "Polar Area", "Scatter"];
 
-    const btnRef = useRef([]);
-
+    //// chart type handler
     const handler = index => e => {
         type = btnRef.current[index].name;
         handleType(type !== "Polar Area" ? type.toLowerCase() : "polarArea");
     };
 
+    //// UI
     return (
-        <div className="chart-buttons d-flex flex-column">
+        <div className={chartButtons}>
+            {/*//? mapping through all chart types */}
+            {/*//? make a button for each chart type */}
             {chartTypes.map((chart, index) => (
                 <Button
                     key={index}
                     ref={el => (btnRef.current[index] = el)}
                     name={chart}
-                    variant="outline-info"
-                    className="mb-4 text-white"
+                    variant={variant}
+                    className={button}
                     onClick={handler(index)}
                 >
                     {chart + " Chart"}
