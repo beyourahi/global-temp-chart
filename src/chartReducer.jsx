@@ -1,4 +1,5 @@
 import labels from "./fetchData.jsx";
+import dataChunk from "./DATA.json";
 
 //* Initial State
 export const initialState = {
@@ -19,6 +20,7 @@ export const initialState = {
     },
 
     options: {
+        responsive: true,
         maintainAspectRatio: false,
         legend: {
             display: false,
@@ -60,7 +62,6 @@ const reducer = (state, action) => {
     //? Line
     if (action.type === ACTIONS.line) {
         return {
-            ...state,
             chartType: "line",
 
             data: {
@@ -78,6 +79,7 @@ const reducer = (state, action) => {
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
@@ -108,7 +110,6 @@ const reducer = (state, action) => {
     //? Bar
     else if (action.type === ACTIONS.bar) {
         return {
-            ...state,
             chartType: "bar",
 
             data: {
@@ -126,6 +127,7 @@ const reducer = (state, action) => {
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
@@ -156,7 +158,6 @@ const reducer = (state, action) => {
     //? Radar
     else if (action.type === ACTIONS.radar) {
         return {
-            ...state,
             chartType: "radar",
 
             data: {
@@ -169,34 +170,18 @@ const reducer = (state, action) => {
                         hoverBackgroundColor: "#1fd0ff",
                         hoverBorderColor: "#1fd0ff",
                         borderWidth: 2,
+                        pointHoverRadius: 8,
                     },
                 ],
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
                 },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                                callback: (value, index, values) => value + "°",
-                            },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                            },
-                        },
-                    ],
-                },
+                spanGaps: true,
             },
         };
     }
@@ -204,7 +189,6 @@ const reducer = (state, action) => {
     //? Pie
     else if (action.type === ACTIONS.pie) {
         return {
-            ...state,
             chartType: "pie",
 
             data: {
@@ -216,34 +200,15 @@ const reducer = (state, action) => {
                         borderColor: "rgba(97, 218, 251, 1)",
                         hoverBackgroundColor: "#1fd0ff",
                         hoverBorderColor: "#1fd0ff",
-                        borderWidth: 2,
                     },
                 ],
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                                callback: (value, index, values) => value + "°",
-                            },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                            },
-                        },
-                    ],
                 },
             },
         };
@@ -252,7 +217,6 @@ const reducer = (state, action) => {
     //? Polar Area
     else if (action.type === ACTIONS.polarArea) {
         return {
-            ...state,
             chartType: "polarArea",
 
             data: {
@@ -264,34 +228,15 @@ const reducer = (state, action) => {
                         borderColor: "rgba(97, 218, 251, 1)",
                         hoverBackgroundColor: "#1fd0ff",
                         hoverBorderColor: "#1fd0ff",
-                        borderWidth: 2,
                     },
                 ],
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                                callback: (value, index, values) => value + "°",
-                            },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                fontSize: 14,
-                            },
-                        },
-                    ],
                 },
             },
         };
@@ -300,24 +245,27 @@ const reducer = (state, action) => {
     //? Scatter
     else if (action.type === ACTIONS.scatter) {
         return {
-            ...state,
             chartType: "scatter",
 
             data: {
-                labels: labels.xLabels,
                 datasets: [
                     {
-                        data: labels.yLabels,
-                        backgroundColor: "rgba(97, 218, 251, 0.2)",
-                        borderColor: "rgba(97, 218, 251, 1)",
+                        data: dataChunk.map(data => ({
+                            x: data.Year,
+                            y: parseFloat(data.Glob) + 14,
+                        })),
+                        backgroundColor: "rgba(97, 218, 251, 1)",
                         hoverBackgroundColor: "#1fd0ff",
                         hoverBorderColor: "#1fd0ff",
+                        pointHoverRadius: 10,
+                        pointRadius: 6,
                         borderWidth: 2,
                     },
                 ],
             },
 
             options: {
+                responsive: true,
                 maintainAspectRatio: false,
                 legend: {
                     display: false,

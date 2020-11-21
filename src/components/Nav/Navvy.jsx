@@ -11,7 +11,7 @@ const Navvy = () => (
                 <FaGlobe className={brandIcon} />
 
                 {/*//? nav header */}
-                <h3 className={brandHeader}>Global Average Temperature</h3>
+                <h3 className={brandHeader}>Global Average Temperature Chart</h3>
             </a>
         </Container>
     </Navbar>
