@@ -1,9 +1,13 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Button } from "react-bootstrap";
+import ChartContext from "../../context/chartContext";
 import { chartButtons, button, variant } from "../../styles/chartButtonsStyles";
 
 //* Chart Buttons component
-const ChartButtons = ({ handleType }) => {
+const ChartButtons = () => {
+    const chartContext = useContext(ChartContext);
+    const { handleType } = chartContext;
+
     //// variable declarations
     let type;
     const btnRef = useRef([]);

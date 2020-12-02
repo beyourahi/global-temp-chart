@@ -1,9 +1,13 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Chart from "chart.js";
 import chartContainer from "../../styles/tempChartStyles";
+import ChartContext from "../../context/chartContext";
 
 //* Chart Component
-const TempChart = ({ data, options, chartType }) => {
+const TempChart = () => {
+    const chartContext = useContext(ChartContext);
+    const { data, options, chartType } = chartContext;
+
     useEffect(() => {
         //? remove previous chart if exists
         if (window.myCharts !== undefined) window.myCharts.destroy();
